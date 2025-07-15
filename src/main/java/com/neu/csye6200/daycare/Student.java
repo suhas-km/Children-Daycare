@@ -13,7 +13,7 @@ public class Student extends Person{
     private double GPA;
 
     // JDBC connection parameters
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/Daycare";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/ChildrenDaycare";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "csye6200";
 
