@@ -1,6 +1,6 @@
 # Children Daycare Management System
 
-A robust Spring Boot application built on enterprise Java architecture for comprehensive management of a daycare center's operations. This system leverages Spring's dependency injection, inversion of control principles, and JDBC for data persistence to enable efficient tracking and management of student and staff information.
+A robust Spring Boot application built on enterprise Java architecture for comprehensive management of a daycare center's operations. This system leverages Spring's dependency injection, inversion of control principles, and JDBC for data persistence to enable efficient tracking and management of student and staff information. The application follows a layered architecture pattern with clear separation of concerns between model, repository, service, and configuration layers.
 
 ## Features
 
@@ -20,7 +20,8 @@ A robust Spring Boot application built on enterprise Java architecture for compr
   - Secure database transaction handling
   - Enterprise-level object-oriented design with inheritance hierarchy
   - Type-safe data manipulation
-  - Clean separation of entity models
+  - Clean separation of concerns with layered architecture
+  - Dependency injection for loose coupling between components
 
 ## Technology Stack
 
@@ -47,6 +48,40 @@ A robust Spring Boot application built on enterprise Java architecture for compr
 ### Runtime Environment
 - **JVM**: Memory management, garbage collection, JIT compilation
 - **Tomcat** (embedded): Servlet container for HTTP request handling
+
+## Architecture
+
+The application follows a layered architecture pattern for clear separation of concerns:
+
+### Model Layer
+- Located in `com.neu.csye6200.daycare.model` package
+- Contains entity classes representing domain objects (Person, Student, Teacher)
+- Pure Java POJOs with getters/setters
+- Implements inheritance hierarchy (Student and Teacher extend Person)
+
+### Repository Layer
+- Located in `com.neu.csye6200.daycare.repository` package
+- Handles all database operations (CRUD) using JDBC
+- Uses prepared statements to prevent SQL injection
+- Each entity has its own repository (StudentRepository, TeacherRepository)
+
+### Service Layer
+- Located in `com.neu.csye6200.daycare.service` package
+- Implements business logic and validation rules
+- Acts as a facade over repositories
+- Provides transaction management
+- Annotated with `@Service` for Spring dependency injection
+
+### Configuration Layer
+- Located in `com.neu.csye6200.daycare.config` package
+- Centralizes application configuration
+- Manages database connection properties
+- Creates and configures beans for dependency injection
+
+### Application Layer
+- Main `DaycareApplication` class bootstraps the application
+- Uses CommandLineRunner for example data initialization
+- Implements dependency injection through constructor parameters
 
 ## Prerequisites
 
