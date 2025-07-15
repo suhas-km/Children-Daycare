@@ -1,95 +1,70 @@
 # Children Daycare Management System
 
-A robust Spring Boot application built on enterprise Java architecture for comprehensive management of a daycare center's operations. This system leverages Spring's dependency injection, inversion of control principles, and JDBC for data persistence to enable efficient tracking and management of student and staff information. The application follows a layered architecture pattern with clear separation of concerns between model, repository, service, and configuration layers.
+A Spring Boot application for efficient daycare management using Spring's IoC, DI, and JDBC for reliable data handling. It features a layered architecture, enhancing modularity and maintainability.
 
 ## Features
 
-- **Student Management Module**
-  - Student registration with comprehensive data capture
-  - Family information tracking (parents' details)
-  - Contact information management
-  - Academic performance monitoring (GPA)
+### Student Management
+- Comprehensive data capture and registration
+- Family and contact information tracking
+- GPA monitoring
 
-- **Teacher Management Module**
-  - Staff registration and credential tracking
-  - Experience tracking through credits system
-  - Group and classroom assignment capabilities
+### Teacher Management
+- Registration and credential tracking
+- Experience and classroom assignment
 
-- **Core Technical Features**
-  - Robust data persistence using JDBC with prepared statements
-  - Secure database transaction handling
-  - Enterprise-level object-oriented design with inheritance hierarchy
-  - Type-safe data manipulation
-  - Clean separation of concerns with layered architecture
-  - Dependency injection for loose coupling between components
+### Technical Features
+- JDBC for secure and efficient data persistence
+- Layered architecture with dependency injection
+- Enterprise-level OOP design
 
 ## Technology Stack
 
-### Backend Framework
-- **Java 11**: Enterprise-grade JDK with long-term support
-- **Spring Boot 2.7.17**: Production-ready framework minimizing boilerplate code
-  - Spring Core: Dependency Injection container
-  - Spring JDBC: Database access templates and utilities
-  - Spring Web: RESTful API foundation
+### Backend
+- **Java 11**: LTS JDK
+- **Spring Boot 2.7.17**
+  - Core: DI container
+  - JDBC: Database utilities
+  - Web: REST API
 
-### Build & Dependency Management
-- **Maven 3**: Declarative build and dependency management
-  - Lifecycle management
-  - Transitive dependency resolution
-  - Project Object Model (POM) based configuration
+### Build & Management
+- **Maven 3**: Lifecycle and dependency management
 
-### Data Layer
-- **MySQL 8.0**: Robust relational database management system
-- **JDBC**: Low-level database connectivity with optimal performance
-  - Connection pooling
-  - Prepared statement caching
-  - Transaction management
+### Data
+- **MySQL 8.0**: RDBMS
+- **JDBC**: Connection pooling and transactions
 
-### Runtime Environment
-- **JVM**: Memory management, garbage collection, JIT compilation
-- **Tomcat** (embedded): Servlet container for HTTP request handling
+### Runtime
+- **JVM**: Memory and garbage management
+- **Tomcat**: Embedded servlet container
 
 ## Architecture
 
-The application follows a layered architecture pattern for clear separation of concerns:
+### Model
+- Entity classes in `com.neu.csye6200.daycare.model`
+- Implements inheritance (Student, Teacher extend Person)
 
-### Model Layer
-- Located in `com.neu.csye6200.daycare.model` package
-- Contains entity classes representing domain objects (Person, Student, Teacher)
-- Pure Java POJOs with getters/setters
-- Implements inheritance hierarchy (Student and Teacher extend Person)
+### Repository
+- CRUD operations in `com.neu.csye6200.daycare.repository`
+- Prepared statements for SQL injection prevention
 
-### Repository Layer
-- Located in `com.neu.csye6200.daycare.repository` package
-- Handles all database operations (CRUD) using JDBC
-- Uses prepared statements to prevent SQL injection
-- Each entity has its own repository (StudentRepository, TeacherRepository)
+### Service
+- Business logic in `com.neu.csye6200.daycare.service`
+- Facade over repositories with transaction management
 
-### Service Layer
-- Located in `com.neu.csye6200.daycare.service` package
-- Implements business logic and validation rules
-- Acts as a facade over repositories
-- Provides transaction management
-- Annotated with `@Service` for Spring dependency injection
+### Configuration
+- Centralized setup in `com.neu.csye6200.daycare.config`
 
-### Configuration Layer
-- Located in `com.neu.csye6200.daycare.config` package
-- Centralizes application configuration
-- Manages database connection properties
-- Creates and configures beans for dependency injection
-
-### Application Layer
-- Main `DaycareApplication` class bootstraps the application
-- Uses CommandLineRunner for example data initialization
-- Implements dependency injection through constructor parameters
+### Application
+- Main class bootstraps and initializes data with DI
 
 ## Prerequisites
 
-- **JDK 11**: Oracle JDK or OpenJDK implementation
-- **Maven 3.6+**: For dependency management and build automation
-- **MySQL Server 8.0+**: Relational database server
-- **IDE**: Spring Tool Suite, IntelliJ IDEA, or Eclipse with Spring plugins (recommended)
-- **Git**: For version control (optional)
+- **JDK 11**
+- **Maven 3.6+**
+- **MySQL Server 8.0+**
+- **IDE**: IntelliJ IDEA, Eclipse, or STS
+- **Git**: Version control (optional)
 
 ## Database Setup
 
@@ -129,7 +104,7 @@ CREATE TABLE teacher (
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/suhas-km/Children-Daycare.git
    cd Children-Daycare
    ```
 
@@ -354,9 +329,9 @@ This project is in active development with a focus on establishing the core doma
 
 ## Contributors
 
-- Development Team: [Your Name/Team]
+- Development Team: Suhas K M/ Northeastern University, CSYE 6200 - Object-Oriented Design
 - Academic Project: Northeastern University, CSYE 6200 - Object-Oriented Design
 
 ---
 
-© 2025 [Your Organization]. All rights reserved.
+© 2025 Northeastern University, CSYE 6200 - Object-Oriented Design. All rights reserved.
